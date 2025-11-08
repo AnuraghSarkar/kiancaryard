@@ -5,12 +5,17 @@ import dotenv from 'dotenv'
 import Groq from 'groq-sdk'
 import { upload } from './config/cloudinary.js'
 dotenv.config()
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY
 })
 
 const app = express()
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // Middleware
 app.use(cors())
@@ -421,6 +426,15 @@ app.get('/api/health', (req, res) => {
 // Connect to DB and start server
 const PORT = process.env.PORT || 5000
 
+if (process.env.NODE_ENV === 'production') {
+  // Serve Vite build
+  app.use(express.static(path.join(__dirname, '../client/dist')))
+
+  // Catch-all route for SPA
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/dist/index.html'))
+  })
+}
 connectDB().then(() => {
   app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`)
