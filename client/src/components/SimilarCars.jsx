@@ -35,7 +35,7 @@ const SimilarCars = ({ currentCarId, make, price, bodyType }) => {
           <Link key={car._id} to={`/car/${car._id}`} className="card group">
             <div className="relative overflow-hidden">
               <img
-                src={car.image[0]}
+                src={car.images[0]}
                 alt={`${car.make} ${car.model}`}
                 className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
               />
