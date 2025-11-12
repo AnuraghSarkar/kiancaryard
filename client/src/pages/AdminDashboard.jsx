@@ -306,7 +306,7 @@ const deleteCar = (id) => {
                 <div className="col-span-2 border-2 border-dashed border-gray-300 rounded-lg p-6 bg-white">
                   <label className="block text-sm font-medium mb-3">
                     <Upload className="h-5 w-5 inline mr-2" />
-                    Upload Car Images (Max 5)
+                    Upload Car Images (Max 10)
                   </label>
                   
                   <input

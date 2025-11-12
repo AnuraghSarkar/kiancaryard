@@ -470,7 +470,7 @@ const SellCar = () => {
               <div className="text-center mb-4">
                 <Upload className="h-12 w-12 text-primary-600 mx-auto mb-3" />
                 <p className="text-gray-700 font-medium mb-2">Upload photos of your car</p>
-                <p className="text-sm text-gray-600 mb-4">Maximum 5 images (JPG, PNG, WEBP)</p>
+                <p className="text-sm text-gray-600 mb-4">Maximum 10 images (JPG, PNG, WEBP)</p>
                 
                 <label className="btn-primary cursor-pointer inline-block">
                   <Upload className="h-5 w-5 inline mr-2" />
